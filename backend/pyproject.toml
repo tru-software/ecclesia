@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ecclesia-backend"
+version = "0.0.0"
+description = "Backend service for the Ecclesia project"
+# readme = "../README.md"
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "sqlalchemy",
+  "alembic",
+  "psycopg2-binary",
+  "pydantic-settings",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "black",
+  "mypy",
+  "isort",
+  "ruff",
+  "pre-commit",
+  "flake8",
+]
+
+worker = [
+  "celery[redis]",
+]
